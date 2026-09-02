@@ -26,24 +26,10 @@ public class BIomSword implements ModInitializer {
 	public void onInitialize() {
 
 
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
-        ServerLivingEntityEvents.AFTER_DAMAGE.register((entity, source, baseDamageTaken, damageTaken, blocked) -> {
-            if (entity instanceof ServerPlayer player) {
+		ModItems.registerModItems();
 
-                if (source.getEntity() instanceof Zombie zombie) {
-                    player.level().explode(
-                            zombie,
-                            zombie.getX(),
-                            zombie.getY(),
-                            zombie.getZ(),
-                            2.0F,
-                            Level.ExplosionInteraction.MOB
-                    );
-                }
-            }
-        });
+
+
 		LOGGER.info("Noxfer Loggs on");
 	}
 
